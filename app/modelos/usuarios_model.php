@@ -22,7 +22,7 @@ class usuarios_model {
     private $resumenProfesional;
     private $fechaCreacion;
 
-    function __construct($db) {
+    function __construct() {
         $this->db = Conectar::conexion();
     }
 
@@ -173,11 +173,12 @@ class usuarios_model {
     //Funciones
 
     function showUser($id) {
-        $sql = "SELECT * from usuario WHERE id = '$id';";
-
+        $sql = "SELECT * from usuario WHERE id = $id;";
+        
         $result = $this->db->query($sql);
 
         $fila = $result->fetch_assoc();
+        
         return $fila;
     }
 
